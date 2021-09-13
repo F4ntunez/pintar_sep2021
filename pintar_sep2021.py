@@ -10,6 +10,14 @@ Exercises
 
 """
 
+"""
+Integrantes del equipo:
+Fernando Antúnez Arnold A01570817
+-
+-
+"""
+
+
 from turtle import *
 
 from freegames import vector
