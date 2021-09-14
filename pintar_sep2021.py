@@ -1,24 +1,14 @@
 """Paint, for drawing shapes.
-
 Exercises
-
 1. Add a color.
 2. Complete circle.
 3. Complete rectangle.
 4. Complete triangle.
 5. Add width parameter.
-
 """
-
-"""
-Integrantes del equipo:
-Fernando Antúnez Arnold A01570817
--
--
-"""
-
 
 from turtle import *
+import turtle
 
 from freegames import vector
 
@@ -27,6 +17,8 @@ def line(start, end):
     "Draw line from start to end."
     up()
     goto(start.x, start.y)
+    # adding width parameter
+    width(5)
     down()
     goto(end.x, end.y)
 
@@ -40,6 +32,8 @@ def square(start, end):
 
     for count in range(4):
         forward(end.x - start.x)
+        # adding width parameter
+        width(4-count)
         left(90)
 
     end_fill()
@@ -47,17 +41,54 @@ def square(start, end):
 
 def circle(start, end):
     "Draw circle from start to end."
+    begin_fill()
+    turtle.circle(80)
+    end_fill()
     pass  # TODO
 
 
 def rectangle(start, end):
     "Draw rectangle from start to end."
+    
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    # drawing first side
+    forward(end.x - start.x) 
+    left(90) 
+     
+    # drawing second side
+    forward((end.x - start.x)/2) 
+    left(90) 
+     
+    # drawing third side
+    forward(end.x - start.x) 
+    left(90)
+     
+    # drawing fourth side
+    forward((end.x - start.x)/2)
+    left(90) 
+
+    end_fill()
     pass  # TODO
 
 
 def triangle(start, end):
     "Draw triangle from start to end."
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    
+    for i in range(3):
+        forward(end.x - start.x)
+        # adding width parameter
+        width(3-i)
+        left(120)
+        
+    end_fill()
 
 
 def tap(x, y):
@@ -88,11 +119,10 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
+onkey(lambda: color('Orange'), 'O')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
 done()
-
-
