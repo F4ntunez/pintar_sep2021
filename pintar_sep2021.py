@@ -1,13 +1,10 @@
 """Paint, for drawing shapes.
-
 Exercises
-
 1. Add a color.
 2. Complete circle.
 3. Complete rectangle.
 4. Complete triangle.
 5. Add width parameter.
-
 
 """
 
@@ -53,6 +50,29 @@ def circle(start, end):
 
 def rectangle(start, end):
     "Draw rectangle from start to end."
+    
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    # drawing first side
+    forward(end.x - start.x) 
+    left(90) 
+     
+    # drawing second side
+    forward((end.x - start.x)/2) 
+    left(90) 
+     
+    # drawing third side
+    forward(end.x - start.x) 
+    left(90)
+     
+    # drawing fourth side
+    forward((end.x - start.x)/2)
+    left(90) 
+
+    end_fill()
     pass  # TODO
 
 
