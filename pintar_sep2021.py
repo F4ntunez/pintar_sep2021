@@ -19,6 +19,8 @@ def line(start, end):
     "Draw line from start to end."
     up()
     goto(start.x, start.y)
+    # adding width parameter
+    width(5)
     down()
     goto(end.x, end.y)
 
@@ -32,6 +34,8 @@ def square(start, end):
 
     for count in range(4):
         forward(end.x - start.x)
+        # adding width parameter
+        width(4-count)
         left(90)
 
     end_fill()
@@ -49,7 +53,18 @@ def rectangle(start, end):
 
 def triangle(start, end):
     "Draw triangle from start to end."
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    
+    for i in range(3):
+        forward(end.x - start.x)
+        # adding width parameter
+        width(3-i)
+        left(120)
+        
+    end_fill()
 
 
 def tap(x, y):
@@ -86,5 +101,3 @@ onkey(lambda: store('shape', circle), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
 done()
-
-
